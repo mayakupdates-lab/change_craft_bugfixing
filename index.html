@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter Signup</title>
+
+    <style>
+        .signup-card {
+            max-width: 420px;
+            padding: 24px;
+            border-radius: 12px;
+            background: #0B3D91;
+            font-family: Inter, sans-serif;
+        }
+
+        .signup-card h2 {
+            color: #FFFFFF;
+            margin: 0 0 8px;
+        }
+
+        .signup-card p {
+            color: #CBD5E1;
+            margin: 0 0 16px;
+        }
+
+        .signup-form {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .signup-form input {
+            flex: 1;
+            min-width: 0;
+            padding: 10px 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .signup-form button {
+            padding: 10px 16px;
+            border-radius: 8px;
+            border: none;
+            background: #fff;
+            color: #1E3A8A;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .form-label {
+            color: #FFFFFF;
+            display: block;
+            width: 100%;
+        }
+
+        .success-message {
+            color: #FFFFFF;
+        }
+
+
+        @media screen and (max-width: 425px) {
+
+            .signup-card {
+                padding: 16px;
+            }
+
+            .signup-form {
+                flex-direction: column;
+            }
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="signup-card">
+        <h2>Stay in the loop</h2>
+        <p>
+            Get product updates once a month. No spam.
+        </p>
+
+        <form class="signup-form">
+            <label for="email" class="form-label">
+                Email
+            </label>
+            <input type="email" id="email" placeholder="you@email.com" required />
+            <button type="submit">
+                Subscribe
+            </button>
+        </form>
+        <p class="success-message" id="successMessage" hidden>
+            Thanks for subscribing!
+        </p>
+    </div>
+
+    <script>
+        const form = document.querySelector(".signup-form");
+        const successMessage = document.querySelector("#successMessage");
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (form.checkValidity()) {
+                form.style.display = "none";
+                successMessage.hidden = false;
+            }
+        });
+
+    </script>
+
+</body>
+
+
+
+</html>
